@@ -73,5 +73,55 @@ $data = [
   ];
 
 $book = new Book($data);
-echo "<br>" . $book->getTitle() . " has " . $book->getPages() . " pages";
+// echo "<br>" . $book->getTitle() . " has " . $book->getPages() . " pages";
 
+echo "exercice 1<br>";
+require "city.php";
+
+
+// $city1 =new City(["Paris", 75]);
+// $city2 =new City (["Rouen", 76]);
+// $city3 =new City(["Caen", 14]);
+// $city1->showLocation();
+// $city2->showLocation();
+// $city3->showLocation();
+
+echo "exercice 2<br>";
+
+// $cities = [
+//   ["Paris", 75],
+//   ["Rouen", 76],
+//   ["Caen", 14]
+// ];
+
+// foreach($cities as $city){
+//   $city = new City($city);
+//   $city->showLocation();
+// }
+
+echo "exercice 3<br>";
+require "people.php";
+
+$peoples = [
+  ["Antoine", "Chemin", "25 rue du terrain 76100 Rouen"],
+  ["Marcel", "Duchamps", "theatre des arts 76000 Rouen"],
+  ["Yves", "Klein", "rue du faubourg St Honnoré, 75008 Paris"],
+  ["Omer", "Simpson", "Springfield"]
+];
+
+foreach ($peoples as $people):
+  $people = new People($people);
+  $people->getCoord();
+endforeach;
+
+echo "<h2>exercice 4</h2><br>";
+echo "<br>";
+
+require "form.php";
+$form = new Form("");
+
+$form->setTexte("name?");
+
+$form->setSubmit("form", "envoyer");
+
+$form->showForm();
