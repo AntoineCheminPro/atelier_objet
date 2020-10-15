@@ -1,18 +1,18 @@
-<?php require "student.php";
+<?php
+require "model/entity/student.php";
+require "model/studentModel.php";
 
+// Instancie le modèle de Student
+$studentModel = new StudentModel();
 
-$student = new Student("Billy", 19);
-$student2 = new Student("Marie", 22);
-// $student3 = new student(null, null);
+// Si le formulaire a été soumis
+if(isset($_POST["new_student"])) {
+  // Crée un nouvel étudiant avec les données du formulaire
+  $student = new Student($_POST);
+  // Enregistre l'étudiant en BDD
+  $studentModel->addStudent($student);
+}
 
-$student->setId("azerty123");
-var_dump($student);
-// var_dump($student2);
-// var_dump($student3);
+$students = $studentModel->getStudents();
 
-echo "<p>$student->firstname : " .  $student->getId() . "</p>";
-echo "<p>Base code étudiant: ". Student::$base."</p>";
-student::setBase("21");
-echo "<p>Base code étudiant2: ". Student::$base."</p>";
-echo "<p>Base code étudiant3: ". Student::$base."</p>";
-echo "<p>valeur max : ". Student::MAX ."</p>";
+include "view/indexView.php";
