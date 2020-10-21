@@ -116,12 +116,10 @@ endforeach;
 
 echo "<h2>exercice 4</h2><br>";
 echo "<br>";
-
 require "form.php";
+
 $form = new Form("");
-
-$form->setTexte("name?");
-
+$form->setTexte($name = "name?");
 $form->setSubmit("form", "envoyer");
 
 $form->showForm();
